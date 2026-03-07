@@ -1,0 +1,35 @@
+# Python generated
+__pycache__/
+*.py[cod]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+
+# Files
+*.png
+*.csv
+*.xlsx
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+additional_requests.md
+ARCHITECTURE_AND_IMPROVEMENTS.md
+CROP_YIELD_PREDICTION_REPORT.md
