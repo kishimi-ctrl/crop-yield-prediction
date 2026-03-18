@@ -113,7 +113,7 @@ def explain_prediction(input_data):
 
     return {
         "contributions": contributions,
-        "base_value": float(explainer.expected_value),  # type: ignore[arg-type]
+        "base_value": float(np.atleast_1d(explainer.expected_value)[0]),  # type: ignore[arg-type]
     }
 
 

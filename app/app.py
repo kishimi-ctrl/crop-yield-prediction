@@ -6,6 +6,7 @@ Streamlit application for farmers to predict crop yield.
 
 import streamlit as st
 import pandas as pd
+import plotly.graph_objects as go
 
 from model_utils import explain_prediction, get_recommendations, predict_yield
 
@@ -317,13 +318,27 @@ def main():
                 explanation = explain_prediction(input_data)
                 st.markdown("### 🔍 What's Driving This Prediction?")
                 contrib_df = pd.DataFrame(explanation["contributions"])
-                contrib_df["color"] = contrib_df["shap_value"].apply(
-                    lambda v: "green" if v > 0 else "red"
+                # Reverse so largest impact is at top
+                contrib_df = contrib_df.iloc[::-1]
+                colors = [
+                    "#4CAF50" if v > 0 else "#F44336"
+                    for v in contrib_df["shap_value"]
+                ]
+                fig = go.Figure(
+                    go.Bar(
+                        x=contrib_df["shap_value"],
+                        y=contrib_df["feature"],
+                        orientation="h",
+                        marker_color=colors,
+                    )
                 )
-                st.bar_chart(
-                    contrib_df.set_index("feature")["shap_value"],
-                    horizontal=True,
+                fig.update_layout(
+                    xaxis_title="Impact on yield (bags/ha)",
+                    yaxis_title="",
+                    height=400,
+                    margin=dict(l=0, r=0, t=10, b=0),
                 )
+                st.plotly_chart(fig, use_container_width=True)
                 st.caption(
                     f"Baseline yield: {explanation['base_value']:.2f} bags/ha. "
                     "Green bars increase yield, red bars decrease it."
