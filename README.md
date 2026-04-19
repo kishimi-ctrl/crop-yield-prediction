@@ -23,7 +23,7 @@ A machine learning web application that predicts maize crop yield (bags per hect
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/crop-yield-prediction.git
+   git clone https://github.com/kishimi-ctrl/crop-yield-prediction.git
    cd crop-yield-prediction
    ```
 
