@@ -12,7 +12,7 @@ from model_utils import explain_prediction, get_recommendations, predict_yield
 
 # Page configuration
 st.set_page_config(
-    page_title="Crop Yield Predictor",
+    page_title="Maize Crop Yield Prediction System",
     page_icon="🌾",
     layout="wide",
     initial_sidebar_state="expanded",
