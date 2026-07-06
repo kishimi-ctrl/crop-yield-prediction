@@ -74,7 +74,7 @@ st.markdown(
 
 def main():
     # Header
-    st.header("🌾 Crop Yield Predictor")
+    st.header("🌾 Maize Crop Yield Prediction System")
     st.markdown(
         "Predict your maize yield based on farm conditions and management practices"
     )
