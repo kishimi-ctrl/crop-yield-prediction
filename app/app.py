@@ -306,9 +306,9 @@ def main():
                 <div class="prediction-box">
                     <div class="yield-unit">Predicted Yield</div>
                     <div class="yield-value">{result["yield"]}</div>
-                    <div class="yield-unit">bags per hectare</div>
+                    <div class="yield-unit">50kg bags per hectare</div>
                     <br>
-                    <small>Range: {result["confidence_low"]} - {result["confidence_high"]} bags/ha</small>
+                    <small>Range: {result["confidence_low"]} - {result["confidence_high"]} 50kg bags/ha</small>
                 </div>
                 """,
                     unsafe_allow_html=True,
